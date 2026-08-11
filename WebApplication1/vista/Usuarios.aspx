@@ -26,6 +26,7 @@ body{
 h1{
     color:#7b1fa2;
     text-align:center;
+    font-size:55px;
 }
 
 .caja{
@@ -40,6 +41,7 @@ h1{
     border:none;
     padding:12px 25px;
     font-size:18px;
+    margin-right:10px;
 }
 
 </style>
@@ -53,6 +55,13 @@ h1{
 <div class="contenedor">
 
 <h1>Gestión de Usuarios</h1>
+
+<asp:TextBox
+ID="txtID"
+runat="server"
+CssClass="caja"
+placeholder="Usuario ID">
+</asp:TextBox>
 
 <asp:TextBox
 ID="txtNombre"
@@ -78,9 +87,30 @@ placeholder="Teléfono">
 <asp:Button
 ID="btnGuardar"
 runat="server"
-Text="Guardar Usuario"
+Text="Guardar"
 CssClass="boton"
 OnClick="btnGuardar_Click" />
+
+<asp:Button
+ID="btnConsultar"
+runat="server"
+Text="Consultar"
+CssClass="boton"
+OnClick="btnConsultar_Click" />
+
+<asp:Button
+ID="btnModificar"
+runat="server"
+Text="Modificar"
+CssClass="boton"
+OnClick="btnModificar_Click" />
+
+<asp:Button
+ID="btnEliminar"
+runat="server"
+Text="Eliminar"
+CssClass="boton"
+OnClick="btnEliminar_Click" />
 
 <br /><br />
 
@@ -102,5 +132,4 @@ Width="100%">
 </form>
 
 </body>
-
 </html>

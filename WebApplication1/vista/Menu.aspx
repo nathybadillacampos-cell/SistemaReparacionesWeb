@@ -113,13 +113,15 @@
             ID="btnAsignaciones"
             runat="server"
             Text="Asignaciones"
-            CssClass="boton rosa" />
+            CssClass="boton rosa"
+            PostBackUrl="Asignaciones.aspx"/>
 
         <asp:Button
             ID="btnDetalles"
             runat="server"
             Text="Detalles"
-            CssClass="boton lila" />
+            CssClass="boton lila"
+            PostBackUrl="DetallesReparacion.aspx"/>
 
     </div>
 

@@ -33,21 +33,56 @@ namespace SistemaReparacionesWeb.vista
                     txtNombre.Text,
                     txtEspecialidad.Text);
 
-            if (respuesta > -1)
-            {
-                lblMensaje.Text =
-                    "✅ Técnico guardado correctamente";
+            lblMensaje.Text =
+                respuesta > 0
+                ? "✅ Técnico guardado"
+                : "❌ No se pudo guardar el técnico. Verifique que los datos sean correctos.";
 
-                txtNombre.Text = "";
-                txtEspecialidad.Text = "";
+            CargarGrid();
+        }
 
-                CargarGrid();
-            }
-            else
-            {
-                lblMensaje.Text =
-                    "❌ Error al guardar";
-            }
+        protected void btnConsultar_Click(
+            object sender,
+            EventArgs e)
+        {
+            CargarGrid();
+
+            lblMensaje.Text =
+                "✅ Consulta realizada correctamente";
+        }
+
+        protected void btnModificar_Click(
+            object sender,
+            EventArgs e)
+        {
+            int respuesta =
+                logica_tecnico.ModificarTecnico(
+                    Convert.ToInt32(txtID.Text),
+                    txtNombre.Text,
+                    txtEspecialidad.Text);
+
+            lblMensaje.Text =
+                respuesta > 0
+                ? "✅ Técnico modificado"
+                : "❌ No se pudo modificar el técnico. Verifique que el Técnico ID exista.";
+
+            CargarGrid();
+        }
+
+        protected void btnEliminar_Click(
+            object sender,
+            EventArgs e)
+        {
+            int respuesta =
+                logica_tecnico.EliminarTecnico(
+                    Convert.ToInt32(txtID.Text));
+
+            lblMensaje.Text =
+                respuesta > 0
+                ? "✅ Técnico eliminado"
+                : "❌ No se puede eliminar el técnico porque tiene asignaciones asociadas o el ID no existe.";
+
+            CargarGrid();
         }
     }
 }
